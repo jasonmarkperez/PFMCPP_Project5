@@ -174,7 +174,7 @@ struct Human
 
     void printNumberOfPets()
     {
-        std::cout << this->name << " has " << this->numberOfPets << " pet(s)." << std::endl; 
+        std::cout << this->name << " has: " << this->numberOfPets << " pet(s)." << std::endl; 
     }
 
     bool isDriverAllowedToDrive();
@@ -335,7 +335,6 @@ struct Adoption
     {
         std::cout << "Adoption is complete." << std::endl;
     }
-
 };
 
 #include <iostream>
@@ -345,6 +344,7 @@ int main()
     Pet zuul("cat", "Zuul");
     Human jason("Jason");
     jason.adoptPet(zuul);
+    std::cout << "Jason has: " << jason.numberOfPets << " pet(s)." << std::endl;
     jason.printNumberOfPets();
     std::cout << "---" << std::endl;
     Synthesizer moog("Mother32"), korg("Sigma");
