@@ -33,6 +33,7 @@ Create a branch named Part3
  */
 #include <iostream>
 #include <vector>
+#include "LeakedObjectDetector.h"
 
 struct Pet 
 {
@@ -118,6 +119,7 @@ struct Pet
         this->isPetHappy ?  std::cout << " is" : std::cout << " is not";
         std::cout << " happy" << std::endl;
     }
+    JUCE_LEAK_DETECTOR(Pet)
 };
 
 /*
@@ -165,6 +167,7 @@ struct Human
             return "Pet is not hungry";
         }
     }
+    JUCE_LEAK_DETECTOR(Human)
 };
 
 /*
@@ -196,6 +199,7 @@ struct Synthesizer
         std::cout << " -note off- ";
         -- this->notesOn;
     }
+    JUCE_LEAK_DETECTOR(Synthesizer)
 };
 
 struct Sequencer
@@ -249,6 +253,7 @@ struct Sequencer
         this->playForward = false;
         this->playReverse = true;
     }
+    JUCE_LEAK_DETECTOR(Sequencer)
 };
 
 /*
@@ -291,6 +296,7 @@ struct Composition
     {
         std::cout << "A composition is destroyed." << std::endl;
     }
+    JUCE_LEAK_DETECTOR(Composition)
 };
 
 
@@ -311,23 +317,81 @@ struct Adoption
     {
         std::cout << "Adoption is complete." << std::endl;
     }
+    JUCE_LEAK_DETECTOR(Adoption)
 };
 
-#include <iostream>
+struct PetWrapper
+{
+    PetWrapper(Pet* ptr) : pointerToPet(ptr){}
+    ~PetWrapper(){
+        delete pointerToPet;
+    }
+
+    Pet* pointerToPet = nullptr;
+};
+
+struct HumanWrapper
+{
+    HumanWrapper(Human* ptr) : pointerToHuman(ptr){}
+    ~HumanWrapper(){
+        delete pointerToHuman;
+    }
+
+    Human* pointerToHuman = nullptr;
+};
+
+struct SynthesizerWrapper
+{
+    SynthesizerWrapper(Synthesizer* ptr) : pointerToSynthesizer(ptr){}
+    ~SynthesizerWrapper(){
+        delete pointerToSynthesizer;
+    }
+
+    Synthesizer* pointerToSynthesizer = nullptr;
+};
+
+struct SequencerWrapper
+{
+    SequencerWrapper(Sequencer* ptr) : pointerToSequencer(ptr){}
+    ~SequencerWrapper(){
+        delete pointerToSequencer;
+    }
+
+    Sequencer* pointerToSequencer = nullptr;
+};
+
+struct CompositionWrapper
+{
+    CompositionWrapper(Composition* ptr) : pointerToComposition(ptr){}
+    ~CompositionWrapper(){
+        delete pointerToComposition;
+    }
+
+    Composition* pointerToComposition = nullptr;
+};
+
+
 int main()
 {
-    Pet zuul("cat", "Zuul");
-    Human jason("Jason");
-    jason.adoptPet(zuul);
-    std::cout << "Jason has: " << jason.numberOfPets << " pet(s)." << std::endl;
-    jason.printNumberOfPets();
+    PetWrapper zuul(new Pet("cat", "Zuul"));
+    std::cout << "Hello " << zuul.pointerToPet->name << std::endl;
+    HumanWrapper jason(new Human("Jason"));
+    jason.pointerToHuman->adoptPet(*zuul.pointerToPet);
+    std::cout << "Jason has: " << jason.pointerToHuman->numberOfPets << " pet(s)." << std::endl;
+    jason.pointerToHuman->printNumberOfPets();
     std::cout << "---" << std::endl;
-    Synthesizer moog("Mother32"), korg("Sigma");
-    std::cout << "Moog's polyphony: " << moog.polyphony << std::endl;
-    Sequencer mc202("MC202"), msq8("SQD-1");
-    mc202.recordNote(99);
-    mc202.recordNote(24);
-    mc202.recordNote(77);
-    Composition newSong({moog, korg}, {mc202});
-    newSong.addCommand("Mother32", "plays", "MC202");
+    SynthesizerWrapper moog(new Synthesizer("Mother32"));
+    SynthesizerWrapper korg(new Synthesizer("Sigma"));
+
+    std::cout << "Moog's polyphony: " << moog.pointerToSynthesizer->polyphony << std::endl;
+    
+    SequencerWrapper mc202(new Sequencer("MC202"));
+    SequencerWrapper msq8(new Sequencer("SQD-1"));
+    mc202.pointerToSequencer->recordNote(99);
+    mc202.pointerToSequencer->recordNote(24);
+    mc202.pointerToSequencer->recordNote(77);
+
+    CompositionWrapper newSong(new Composition({*moog.pointerToSynthesizer, *korg.pointerToSynthesizer}, {*mc202.pointerToSequencer}));
+    
+    newSong.pointerToComposition->addCommand("Mother32", "plays", "MC202");
 }
