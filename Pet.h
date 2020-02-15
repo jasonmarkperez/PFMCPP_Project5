@@ -10,6 +10,7 @@ struct Pet
     double foodLevel;
     std::string name;
 
+    FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
     Pet(std::string petType, std::string petName) : isCat(false), isDog(false), isPetHappy(false), isPetHungry(false), age(0), foodLevel(10.0), name(petName)
     { 
         std::cout << "A " << petType << " named " << petName << " is born!" << std::endl;
@@ -29,6 +30,7 @@ struct Pet
         }
     }
 
+    FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
     ~Pet()
     {
         std::cout << "A pet is destroyed, RIP " << this->name << std::endl;

@@ -7,9 +7,11 @@ struct Synthesizer
 {
     unsigned int polyphony, notesOn;
     std::string synthName;
+    FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
     Synthesizer(std::string name) : polyphony(16), notesOn(0), synthName(name) {
         std::cout << "A synthesizer is created " << synthName << std::endl;
     }
+        FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
     ~Synthesizer()
     {
         std::cout << "A synthesizer is destroyed " <<

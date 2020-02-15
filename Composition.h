@@ -12,6 +12,7 @@ struct Composition
     std::vector<Synthesizer> synths;
     std::vector<Sequencer> seqs;
 
+    FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
     Composition(std::vector<Synthesizer> synthesizers, std::vector<Sequencer> sequencers) : synths(synthesizers), seqs(sequencers)
     {
         std::cout << "A composition is created featuring:" << std::endl;
@@ -23,6 +24,7 @@ struct Composition
 
     void addCommand(std::string synth, std::string command, std::string sequencer);
 
+    FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
     ~Composition()
     {
         std::cout << "A composition is destroyed." << std::endl;

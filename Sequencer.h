@@ -11,6 +11,7 @@ struct Sequencer
     std::vector<int> notes;
     std::string name;
 
+    FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
     Sequencer(std::string seqName) : isPlaying(0), playForward(true), playReverse(false), notes({}), name(seqName)
     {}
 

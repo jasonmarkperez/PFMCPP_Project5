@@ -6,6 +6,7 @@
 #include "Sequencer.h"
 #include "Composition.h"
 
+FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct PetWrapper
 {
     PetWrapper(Pet* ptr) : pointerToPet(ptr){}
@@ -16,6 +17,7 @@ struct PetWrapper
     Pet* pointerToPet = nullptr;
 };
 
+FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct HumanWrapper
 {
     HumanWrapper(Human* ptr) : pointerToHuman(ptr){}
@@ -26,6 +28,7 @@ struct HumanWrapper
     Human* pointerToHuman = nullptr;
 };
 
+FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct SynthesizerWrapper
 {
     SynthesizerWrapper(Synthesizer* ptr) : pointerToSynthesizer(ptr){}
@@ -36,6 +39,7 @@ struct SynthesizerWrapper
     Synthesizer* pointerToSynthesizer = nullptr;
 };
 
+FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct SequencerWrapper
 {
     SequencerWrapper(Sequencer* ptr) : pointerToSequencer(ptr){}
@@ -46,6 +50,7 @@ struct SequencerWrapper
     Sequencer* pointerToSequencer = nullptr;
 };
 
+FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct CompositionWrapper
 {
     CompositionWrapper(Composition* ptr) : pointerToComposition(ptr){}
