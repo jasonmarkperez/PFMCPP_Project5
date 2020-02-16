@@ -1,6 +1,10 @@
 #include "Wrappers.h"
+#include "Pet.h"
+#include "Human.h"
+#include "Synthesizer.h"
+#include "Sequencer.h"
+#include "Composition.h"
 
-FIXME: you ARE using the types you forward declared in Wrappers.h.  include the proper files here.
 PetWrapper::PetWrapper(Pet* ptr) : pointerToPet(ptr) {}
 PetWrapper::~PetWrapper()
 {

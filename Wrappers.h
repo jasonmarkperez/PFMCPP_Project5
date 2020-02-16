@@ -1,11 +1,10 @@
 #pragma once
 
-FIXME You're not *USING* any of these types in any of the code below.  Forward declare the types. 
-#include "Pet.h"
-#include "Human.h"
-#include "Synthesizer.h"
-#include "Sequencer.h"
-#include "Composition.h"
+struct Pet;
+struct Human;
+struct Synthesizer;
+struct Sequencer;
+struct Composition;
 
 struct PetWrapper
 {
