@@ -1,5 +1,6 @@
 #pragma once
 
+FIXME You're not *USING* any of these types in any of the code below.  Forward declare the types. 
 #include "Pet.h"
 #include "Human.h"
 #include "Synthesizer.h"

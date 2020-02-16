@@ -1,5 +1,6 @@
 #include "Wrappers.h"
 
+FIXME: you ARE using the types you forward declared in Wrappers.h.  include the proper files here.
 PetWrapper::PetWrapper(Pet* ptr) : pointerToPet(ptr) {}
 PetWrapper::~PetWrapper()
 {
