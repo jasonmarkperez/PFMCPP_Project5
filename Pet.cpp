@@ -1,14 +1,38 @@
 #include "Pet.h"
 #include <iostream>
 
-void Pet::feed()
+Pet::Pet(std::string petType, std::string petName) : isCat(false), isDog(false), isPetHappy(false), isPetHungry(false), age(0), foodLevel(10.0), name(petName)
+{ 
+    std::cout << "A " << petType << " named " << petName << " is born!" << std::endl;
+
+    if(petType == "cat")
+    {
+        std::cout << "meow" << std::endl;
+        this->isCat = true;
+    }
+    else if (petType == "dog")
+    {
+        std::cout << "woof" << std::endl;
+        this->isDog = false;
+    }
+    else {
+        //handle other pet types
+    }
+}
+
+Pet::~Pet()
+{
+    std::cout << "A pet is destroyed, RIP " << this->name << std::endl;
+}
+
+void Pet::Pet::feed()
 {
     std::cout << "nom" << std::endl;
     this->isPetHungry = false;
     this->isPetHappy = true;
 }
 
-void Pet::walk(int howLong)
+void Pet::Pet::walk(int howLong)
 {   
     if(isPetHungry == false)
     {
@@ -42,7 +66,7 @@ void Pet::walk(int howLong)
     this->isPetHappy = true;
 }
 
-void Pet::status()
+void Pet::Pet::status()
 {
     std::cout << this->name;
     this->isPetHungry ?  std::cout << " is" : std::cout << " is not";

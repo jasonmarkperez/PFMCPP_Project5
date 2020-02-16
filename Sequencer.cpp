@@ -2,12 +2,16 @@
 #include "Synthesizer.h"
 #include <iostream>
 
-void Sequencer::recordNote(int note)
+Sequencer::Sequencer(std::string seqName) : isPlaying(0), playForward(true), playReverse(false), notes({}), name(seqName) {}
+
+Sequencer::~Sequencer() {}
+
+void Sequencer::Sequencer::recordNote(int note)
 {
     notes.push_back(note);
 }
 
-void Sequencer::playBack(Synthesizer synth)
+void Sequencer::Sequencer::playBack(Synthesizer synth)
 {
     if(this->playForward)
     {
@@ -33,13 +37,13 @@ void Sequencer::playBack(Synthesizer synth)
     std::cout << std::endl;
 }
 
-void Sequencer::setForwardPlayback()
+void Sequencer::Sequencer::setForwardPlayback()
 {
     this->playForward = true;
     this->playReverse = false;
 }
 
-void Sequencer::setReversePlayback()
+void Sequencer::Sequencer::setReversePlayback()
 {
     this->playForward = false;
     this->playReverse = true;

@@ -6,57 +6,37 @@
 #include "Sequencer.h"
 #include "Composition.h"
 
-FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct PetWrapper
 {
-    PetWrapper(Pet* ptr) : pointerToPet(ptr){}
-    ~PetWrapper(){
-        delete pointerToPet;
-    }
-
+    PetWrapper(Pet* ptr);
+    ~PetWrapper();
     Pet* pointerToPet = nullptr;
 };
 
-FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct HumanWrapper
 {
-    HumanWrapper(Human* ptr) : pointerToHuman(ptr){}
-    ~HumanWrapper(){
-        delete pointerToHuman;
-    }
-
+    HumanWrapper(Human* ptr);
+    ~HumanWrapper();
     Human* pointerToHuman = nullptr;
 };
 
-FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct SynthesizerWrapper
 {
-    SynthesizerWrapper(Synthesizer* ptr) : pointerToSynthesizer(ptr){}
-    ~SynthesizerWrapper(){
-        delete pointerToSynthesizer;
-    }
-
+    SynthesizerWrapper(Synthesizer* ptr);
+    ~SynthesizerWrapper();
     Synthesizer* pointerToSynthesizer = nullptr;
 };
 
-FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct SequencerWrapper
 {
-    SequencerWrapper(Sequencer* ptr) : pointerToSequencer(ptr){}
-    ~SequencerWrapper(){
-        delete pointerToSequencer;
-    }
-
+    SequencerWrapper(Sequencer* ptr);
+    ~SequencerWrapper();
     Sequencer* pointerToSequencer = nullptr;
 };
 
-FIXME 5) NO IN-CLASS IMPLEMENTATION ALLOWED.
 struct CompositionWrapper
 {
-    CompositionWrapper(Composition* ptr) : pointerToComposition(ptr){}
-    ~CompositionWrapper(){
-        delete pointerToComposition;
-    }
-
+    CompositionWrapper(Composition* ptr);
+    ~CompositionWrapper();
     Composition* pointerToComposition = nullptr;
 };

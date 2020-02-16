@@ -1,7 +1,18 @@
 #include "Synthesizer.h"
 #include <iostream>
 
-void Synthesizer::noteOn()
+Synthesizer::Synthesizer(std::string name) : polyphony(16), notesOn(0), synthName(name) 
+{
+    std::cout << "A synthesizer is created " << synthName << std::endl;
+}
+
+Synthesizer::~Synthesizer()
+{
+    std::cout << "A synthesizer is destroyed " <<
+    synthName << std::endl;
+}
+
+void Synthesizer::Synthesizer::noteOn()
 {
     if(this->notesOn < this->polyphony) 
     {
@@ -9,7 +20,7 @@ void Synthesizer::noteOn()
         ++ this->notesOn;
     }
 }
-void Synthesizer::noteOff()
+void Synthesizer::Synthesizer::noteOff()
 {
     std::cout << " -note off- ";
     -- this->notesOn;

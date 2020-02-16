@@ -43,7 +43,6 @@
 #include "Synthesizer.h"
 #include "Sequencer.h"
 #include "Composition.h"
-#include "Adoption.h"
 #include "Wrappers.h"
 
 int main()
